@@ -1,0 +1,140 @@
+============================================================================================
+Student #27 | SUVATHI S | 192571064HC
+============================================================================================
+[1] QID: 4
+Question : A developer compares two strings using the == operator, which leads to incorrect
+output. Identify the issue and correct the comparison method.
+public class Q3_StringCompare {
+public static void main(String[] args) {
+String s1 = "Java";
+String s2 = new String("Java");
+if(s1.equals(s2)){
+System.out.println("Equal");
+}
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q3_Stringcompare
+{
+public static void main(String[]args)
+{
+String s1="java";
+String s2="java";
+if(s1.equals(s2))
+{
+System.out.println("equal");
+}
+}
+}
+Input : (no input)
+Output : equal
+
+First Save: 2026-06-23 13:46:45
+Last Save : 2026-06-23 13:47:07
+----------------------------------------------------------------------------------------
+[2] QID: 18
+Question : An array assignment uses an invalid index, leading to an error. Identify and corr
+ect the index usage.
+public class Q18_ArrayBounds {
+public static void main(String[] args) {
+int arr[] = new int[3];
+arr[2] = 10;
+System.out.println(arr[2]);
+}
+}
+
+Program : import java.io.*;
+import java.util.*;
+class Q18_arraybounds
+{
+public static void main(String[]args)
+{
+int arr[]=new int[3];
+
+Submitted Answers Report
+arr[2]=10;
+System.out.print(arr[2]);
+}
+}
+Input : (no input)
+Output : 10
+First Save: 2026-06-23 13:43:23
+Last Save : 2026-06-23 13:43:28
+----------------------------------------------------------------------------------------
+[3] QID: 17
+Question : A loop attempts to access characters beyond the string length, causing an excepti
+on. Fix the boundary condition.
+public class Q17_Boundary {
+public static void main(String[] args) {
+String str = "Java";
+for(int i=0;i
+Program : import java.io.*;
+import java.util.*;
+class q17_boundary
+{
+public static void main(String[]args)
+{
+int i=0;
+String r[]=new String[4];
+r[0]="j";
+r[1]="a";
+r[2]="v";
+r[3]="a";
+for(i=0;i
+Input : (no input)
+Output : j
+a
+v
+a
+
+First Save: 2026-06-23 13:35:04
+Last Save : 2026-06-23 14:09:35
+----------------------------------------------------------------------------------------
+[4] QID: 1
+Question : A switch statement prints multiple outputs due to missing statements. Identify th
+e problem and correct the code.
+public class Q10_Switch {
+public static void main(String[] args) {
+int num = 2;
+switch(num){
+case 1: System.out.println("One"); break;
+case 2: System.out.println("Two"); break;
+case 3: System.out.println("Three"); break;
+}
+}
+}
+
+Submitted Answers Report
+Program : import java.io.*;
+import java.util.*;
+class Q10_switch
+{
+public static void main(String[]args)
+{
+int num=2;
+switch(num)
+{
+case 1:
+{
+System.out.print("one");
+break;
+}
+case 2:
+{
+System.out.print("two");
+break;
+}
+case 3:
+{
+System.out.print("three");
+break;
+}
+}
+}
+}
+Input : (no input)
+Output : two
+First Save: 2026-06-23 13:31:39
+Last Save : 2026-06-23 13:31:44
