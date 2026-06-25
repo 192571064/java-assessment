@@ -1,0 +1,226 @@
+//Industry Problem Solving Tasks
+//1.Hospital Patient Billing System
+import java.util.Scanner;
+
+class HospitalBilling {
+    int patientId, days;
+    String patientName, roomType;
+    double treatmentCharges;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Patient ID: ");
+        patientId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Patient Name: ");
+        patientName = sc.nextLine();
+
+        System.out.print("Enter Room Type (General/Special): ");
+        roomType = sc.nextLine();
+
+        System.out.print("Enter Number of Days: ");
+        days = sc.nextInt();
+
+        System.out.print("Enter Treatment Charges: ");
+        treatmentCharges = sc.nextDouble();
+    }
+
+    double calculateRoomCharges() {
+        if (roomType.equalsIgnoreCase("General"))
+            return days * 1500;
+        else
+            return days * 3000;
+    }
+
+    void displayBill() {
+        double total = calculateRoomCharges() + treatmentCharges;
+
+        System.out.println("\nPatient ID: " + patientId);
+        System.out.println("Patient Name: " + patientName);
+        System.out.println("Total Bill = ₹" + total);
+    }
+
+    public static void main(String[] args) {
+        HospitalBilling h = new HospitalBilling();
+        h.readDetails();
+        h.displayBill();
+    }
+}
+//2. Airline Ticket Reservation System
+import java.util.Scanner;
+
+class AirlineReservation {
+    int passengerId, tickets;
+    String passengerName, flightNo;
+    double fare;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Passenger ID: ");
+        passengerId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Passenger Name: ");
+        passengerName = sc.nextLine();
+
+        System.out.print("Flight Number: ");
+        flightNo = sc.nextLine();
+
+        System.out.print("Ticket Fare: ");
+        fare = sc.nextDouble();
+
+        System.out.print("Number of Tickets: ");
+        tickets = sc.nextInt();
+    }
+
+    void calculate() {
+        double total = fare * tickets;
+
+        if (tickets > 5)
+            total -= total * 0.05;
+
+        total += total * 0.12;
+
+        System.out.println("Final Amount = ₹" + total);
+    }
+
+    public static void main(String[] args) {
+        AirlineReservation a = new AirlineReservation();
+        a.readDetails();
+        a.calculate();
+    }
+}
+//3. Vehicle Rental Management System
+import java.util.Scanner;
+
+class VehicleRental {
+    int customerId, days;
+    String customerName, vehicleType;
+    double penalty;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Customer ID: ");
+        customerId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Customer Name: ");
+        customerName = sc.nextLine();
+
+        System.out.print("Vehicle Type (Car/Bike): ");
+        vehicleType = sc.nextLine();
+
+        System.out.print("Rental Days: ");
+        days = sc.nextInt();
+
+        System.out.print("Late Return Penalty: ");
+        penalty = sc.nextDouble();
+    }
+
+    double calculateCharge() {
+        if (vehicleType.equalsIgnoreCase("Car"))
+            return (days * 2000) + penalty;
+        else
+            return (days * 500) + penalty;
+    }
+
+    void display() {
+        System.out.println("Final Rental Bill = ₹" + calculateCharge());
+    }
+
+    public static void main(String[] args) {
+        VehicleRental v = new VehicleRental();
+
+        v.readDetails();
+        v.display();
+    }
+}
+//4. Manufacturing Production Monitoring System
+import java.util.Scanner;
+
+class Production {
+    int productId, target, produced;
+    String productName;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Product ID: ");
+        productId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Product Name: ");
+        productName = sc.nextLine();
+
+        System.out.print("Target Quantity: ");
+        target = sc.nextInt();
+
+        System.out.print("Produced Quantity: ");
+        produced = sc.nextInt();
+    }
+
+    void calculateEfficiency() {
+        double efficiency = ((double) produced / target) * 100;
+
+        System.out.println("Efficiency = " + efficiency + "%");
+
+        if (produced >= target)
+            System.out.println("Status: Achieved");
+        else
+            System.out.println("Status: Not Achieved");
+    }
+
+    public static void main(String[] args) {
+        Production p = new Production();
+
+        p.readDetails();
+        p.calculateEfficiency();
+    }
+}
+//5. Online Course Enrollment System
+import java.util.Scanner;
+
+class CourseEnrollment {
+    int studentId;
+    String studentName, courseName;
+    double fee;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Student ID: ");
+        studentId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Student Name: ");
+        studentName = sc.nextLine();
+
+        System.out.print("Course Name: ");
+        courseName = sc.nextLine();
+
+        System.out.print("Course Fee: ");
+        fee = sc.nextDouble();
+    }
+
+    void calculateAmount() {
+        double total = fee + 500;
+
+        if (fee > 20000)
+            total -= fee * 0.15;
+
+        System.out.println("\nEnrollment Details");
+        System.out.println("Student: " + studentName);
+        System.out.println("Final Payable Amount = ₹" + total);
+    }
+
+    public static void main(String[] args) {
+        CourseEnrollment c = new CourseEnrollment();
+
+        c.readDetails();
+        c.calculateAmount();
+    }
+}
