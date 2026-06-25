@@ -1,0 +1,247 @@
+//CASE STUDY QUESTION
+//1.LIBRARY MANAGEMENT SYSTEM
+import java.util.Scanner;
+
+class LibraryBook {
+    int bookId;
+    String title, author;
+    int copies = 20;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Book ID: ");
+        bookId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Book Title: ");
+        title = sc.nextLine();
+
+        System.out.print("Enter Author Name: ");
+        author = sc.nextLine();
+    }
+
+    void issueBook() {
+        if (copies > 0) {
+            copies--;
+            System.out.println("Book Issued Successfully");
+        } else {
+            System.out.println("No Copies Available");
+        }
+    }
+
+    void returnBook() {
+        copies++;
+        System.out.println("Book Returned");
+    }
+
+    void display() {
+        System.out.println("\nBook ID: " + bookId);
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Available Copies: " + copies);
+    }
+
+    public static void main(String[] args) {
+        LibraryBook b = new LibraryBook();
+
+        b.readDetails();
+        b.issueBook();
+        b.returnBook();
+        b.display();
+    }
+}
+//2.EMPLOYEE SALARY MANAGEMENT
+import java.util.Scanner;
+
+class Employee {
+    int empId;
+    String name, dept;
+    double basicSalary = 25000;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Employee ID: ");
+        empId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Employee Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Enter Department: ");
+        dept = sc.nextLine();
+    }
+
+    double calculateHRA() {
+        return basicSalary * 0.20;
+    }
+
+    double calculateDA() {
+        return basicSalary * 0.10;
+    }
+
+    void displaySalary() {
+        double gross = basicSalary + calculateHRA() + calculateDA();
+
+        System.out.println("Gross Salary = ₹" + gross);
+    }
+
+    public static void main(String[] args) {
+        Employee e = new Employee();
+
+        e.readDetails();
+        e.displaySalary();
+    }
+}
+//3.STUDENT FEE MANAGEMENT SYSTEM
+import java.util.Scanner;
+
+class Student {
+    int studentId;
+    String name, course;
+    double feeBalance = 50000;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Student ID: ");
+        studentId = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Student Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Enter Course: ");
+        course = sc.nextLine();
+    }
+
+    void payFee(double amount) {
+        feeBalance -= amount;
+    }
+
+    void checkBalance() {
+        System.out.println("Remaining Fee = ₹" + feeBalance);
+    }
+
+    void display() {
+        System.out.println("Student ID: " + studentId);
+        System.out.println("Name: " + name);
+        System.out.println("Course: " + course);
+        checkBalance();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Student s = new Student();
+
+        s.readDetails();
+
+        System.out.print("Enter Fee Paid: ");
+        double amount = sc.nextDouble();
+
+        s.payFee(amount);
+        s.display();
+    }
+}
+//4.ELECTRICITY BILL MANAGEMENT
+import java.util.Scanner;
+
+class Consumer {
+    int consumerNo;
+    String name, type;
+    int units;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Consumer Number: ");
+        consumerNo = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Enter Connection Type: ");
+        type = sc.nextLine();
+
+        System.out.print("Enter Units Consumed: ");
+        units = sc.nextInt();
+    }
+
+    double calculateBill() {
+        if (type.equalsIgnoreCase("Domestic"))
+            return units * 5;
+        else if (type.equalsIgnoreCase("Commercial"))
+            return units * 8;
+        else
+            return -1;
+    }
+
+    void displayBill() {
+        double bill = calculateBill();
+
+        if (bill == -1)
+            System.out.println("Invalid Connection Type");
+        else
+            System.out.println("Bill Amount = ₹" + bill);
+    }
+
+    public static void main(String[] args) {
+        Consumer c = new Consumer();
+
+        c.readDetails();
+        c.displayBill();
+    }
+}
+//5.MOBILE RECHARGE SYSTEM
+import java.util.Scanner;
+
+class MobileSubscriber {
+    String mobileNo, name, provider;
+    double balance = 500;
+
+    void readDetails() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter Mobile Number: ");
+        mobileNo = sc.nextLine();
+
+        System.out.print("Enter Subscriber Name: ");
+        name = sc.nextLine();
+
+        System.out.print("Enter Service Provider: ");
+        provider = sc.nextLine();
+    }
+
+    void recharge(double amount) {
+        balance += amount;
+    }
+
+    void deduct(double amount) {
+        balance -= amount;
+    }
+
+    void displayBalance() {
+        System.out.println("Updated Balance = ₹" + balance);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        MobileSubscriber m = new MobileSubscriber();
+
+        m.readDetails();
+
+        System.out.print("Enter Recharge Amount: ");
+        double recharge = sc.nextDouble();
+        m.recharge(recharge);
+
+        System.out.print("Enter Usage Amount: ");
+        double usage = sc.nextDouble();
+        m.deduct(usage);
+
+        m.displayBalance();
+    }
+}
